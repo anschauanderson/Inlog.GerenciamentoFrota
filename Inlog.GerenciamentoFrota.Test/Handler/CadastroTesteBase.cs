@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Inlog.GerenciamentoFrota.Api.Mapper;
 using Inlog.GerenciamentoFrota.Data.DataContext;
+using Inlog.GerenciamentoFrota.Domain.Entities;
 using Inlog.GerenciamentoFrota.Domain.Repository;
 using Microsoft.EntityFrameworkCore;
 using Moq;
@@ -38,6 +39,23 @@ namespace Inlog.GerenciamentoFrota.Test.Handler
 			var rep = new Mock<IVeiculoRepository>();
 			rep.Setup(c => c.InserirVeiculo(veiculo)).Returns("Veiculo cadastrado com sucesso!");
 			return rep.Object;
+		}
+		protected Caminhao CriaCaminhao()
+		{
+			return new Caminhao()
+			{
+				Chassi = "CHASSICAMINHAO123",
+				Cor = "PRETO"
+			};
+		}
+
+		protected Onibus CriaOnibus()
+		{
+			return new Onibus()
+			{
+				Chassi = "CHASSIonibus123",
+				Cor = "BRANCO"
+			};
 		}
 	}
 }
